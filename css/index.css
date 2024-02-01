@@ -1,7 +1,5 @@
-body{
-    margin: 0;
-    padding: 0;
-    background: #fefefe;
+body {
+    margin: 0 auto;
 }
 
 .grid-container {
