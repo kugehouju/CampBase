@@ -46,7 +46,7 @@ function addClickListener(img) {
 function createAndAppendImages(container, numImages) {
     for (var i = 0; i < numImages; i++) {
         var img = new Image();
-        img.src = "https://source.sdzfxgunsplash.com/random/?" + searchText + "=" + (images.length + i);
+        img.src = "https://source.unsplash.com/random/?" + keywords + "&" + (images.length + i);
         img.loading = 'lazy';
         var div = document.createElement('div');
         div.className = 'grid-item';
@@ -63,6 +63,9 @@ var images = [];
 
 // 画像の数を指定
 var numImages = 10;
+
+// 検索キーワードを格納する配列
+var keywords = searchText;
 
 // Unsplashからランダムな画像を取得し、ページに追加
 var container = document.createElement('div');

@@ -60,5 +60,20 @@ window.onscroll = function() {
 var arrowButton = document.getElementById('arrow-button');
 arrowButton.onclick = function() {
     var imageDisplayDiv = document.getElementById('imageDisplay');
-    imageDisplayDiv.style.transform = 'translateX(100%)'; // 画像表示エリアを非表示にする
+    imageDisplayDiv.style.transform = 'translateX(' + window.innerWidth + 'px)'; // 画像表示エリアを非表示にする
 }
+
+//bytes: \xe6bytes:\xa4bytes:\x9c索バーを使って画像bytes:\xe6bytes:\xa4bytes:\x9c索ができるようにする
+var searchInput = document.getElementById("search-input");
+
+searchInput.addEventListener("keypress", function (event) {
+    if (event.keyCode === 13) {
+        var searchText = searchInput.value;
+        if(searchText.trim().length === 0) {
+            return;
+        }
+        var url = "https://source.unsplash.com/random/?" + searchText;
+        var image = document.getElementById("displayedImage");
+        image.src = url;
+    }
+});
