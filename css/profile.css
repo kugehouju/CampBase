@@ -8,19 +8,25 @@
 .userName {
     text-align: center;
     font-weight: bold;
-    margin-bottom:  30px;
+    margin-bottom:  15px;
 }
 
-button {
+.Introduction {
+    font-size: 12px;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.setting {
     display: flex;
     margin: 0 auto;
     padding: 10px 30px;
     border-radius: 30px;
     font-weight: bold;
-    border: 1px solid #333;
+    border: 1px solid #d0d0d0;
 }
 
-#editWindow {
+#editModal {
     position: fixed;
     top: 0;
     width: 100%;
@@ -30,4 +36,31 @@ button {
     border-radius: 15px;
     background-color: #fefefe;
     box-shadow: 0 0 10px #333;
+    z-index: 10000;
+}
+
+#editWindow {
+    margin: 10px 13px 0 13px;
+}
+
+#editTop {
+    margin: 10px 0 20px 0;
+    display: flex;
+    justify-content: center;
+}
+
+.cancelBtn {
+    position: absolute;
+    left: 13px;
+}
+
+.storageBtn {
+    position: absolute;
+    right: 13px;
+    font-weight: bold;
+    color: #818080;
+}
+
+#editTop h1 {
+    font-size: 16px;
 }
