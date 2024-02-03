@@ -102,7 +102,6 @@ document.querySelector('.storageBtn').addEventListener('click', function() {
     if (uploadedImage) {
         document.querySelector('.userIcon').src = uploadedImage; // 保存ボタンが押されたら画像を反映
     }
-    // 以下、他の保存処理...
 });
 
 document.querySelector('.cancelBtn').addEventListener('click', function() {
