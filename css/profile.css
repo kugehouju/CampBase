@@ -2,19 +2,29 @@
     width: 140px;
     border-radius: 100px;
     display: flex;
-    margin: 50px auto 30px;
+    margin: 30px auto;
 }
 
 .userName {
     text-align: center;
     font-weight: bold;
-    margin-bottom:  15px;
+    font-size: 24px;
+    margin-bottom:  5px;
 }
 
 .Introduction {
-    font-size: 12px;
+    font-size: 16px;
     text-align: center;
-    margin-bottom: 40px;
+    margin-bottom: 5px;
+}
+
+.userUrl {
+    font-size: 13px;
+    text-align: center;
+    margin-bottom: 30px;
+    font-weight: bold;
+    color: black;
+    text-decoration: none;
 }
 
 .setting {
@@ -27,13 +37,14 @@
     border: 1px solid #d0d0d0;
 }
 
+
 #editModal {
     position: fixed;
     top: 0;
     width: 100%;
     height: 100%;
     transition: transform .3s ease-in-out;
-    transform: translateY(3%);
+    transform: translateY(100%);
     border-radius: 15px;
     background-color: #fefefe;
     box-shadow: 0 0 10px #333;
@@ -67,17 +78,55 @@
     font-size: 14px;
 }
 
+#editContent {
+    /* border: 1px solid #818080; */
+    margin: 0 10px 0 10px;
+}
+
+.notice {
+    color: #818080;
+    font-size: 12px;
+    padding-bottom: 10px;
+}
+
 #editContent img {
     width: 140px;
     border-radius: 80px;
     display: flex;
-    margin: 10px auto;
+    margin: 20px auto;
 }
 
 #imgUp {
     display: flex;
     margin: 0 auto;
+    font-size: 13px;
     border: 1px solid #d0d0d0;
-    padding: 3px 30px;
+    padding: 10px 30px;
+    margin-bottom: 30px;
     border-radius: 30px;
+}
+
+#editContent p {
+    font-weight: bold;
+    margin-bottom: 3px;
+}
+
+#editContent input {
+    width: 100%;
+    margin-bottom: 30px;
+}
+
+svg {
+    width: 25px;
+}
+
+#solid {
+    border: .5px #d0d0d0 solid;
+    margin-top: 30px;
+}
+
+h2 {
+    font-size: 20px;
+    margin-top: 30px;
+    text-align: center;
 }

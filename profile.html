@@ -10,13 +10,13 @@
     <link rel="stylesheet" href="css/all.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300&display=swap" rel="stylesheet">
-</head>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap" rel="stylesheet"></head>
 
 <body>
     <img src="img/profileIcon.jpg" alt="アカウントアイコン" class="userIcon">
-    <p class="userName">ひさしたふうたま</p>
+    <p class="userName">久下楓珠</p>
     <p class="Introduction">デザイナーになりたいです。</p>
+    <p class="userUrl"><a class="userUrl" href="https://www.youtube.com/@ecc3379">https://www.youtube.com/@ecc3379</a></p>
     <button class="setting">プロフィールの編集</button>
     <div id="editModal">
         <div id="editWindow">
@@ -27,23 +27,25 @@
             </div>
         </div>
         <div id="editContent">
+            <p class="notice">個人情報は公開しないでください。ここに追加した情報は、あなたにプロフィールを閲覧できる全てのユーザーに表示されます。</p>
             <img src="img/profileIcon.jpg" alt="ユーザーアイコン">
             <button id="imgUp">編集</button>
             <div id="nameChange">
                 <p>名前</p>
-                <input type="text" placeholder="ひさしたふうたま" autocomplete="off" />
+                <input type="text" placeholder="久下楓珠" autocomplete="off" class="editInput"/>
             </div>
             <div id="selfIntro">
                 <p>自己紹介</p>
-                <input type="text" placeholder="デザイナーになりたいです。" autocomplete="off" />
+                <input type="text" placeholder="デザイナーになりたいです。" autocomplete="off" class="editInput"/>
             </div>
             <div id="webLink">
                 <p>ウェブサイト</p>
-                <input type="text" placeholder="https://github.com/kugehouju" autocomplete="off" />
+                <input type="text" placeholder="https://www.youtube.com/@ecc3379" autocomplete="off" class="editInput"/>
             </div>
         </div>
     </div>
-    </div>
+    <div id="solid"></div>
+    <h2>投稿はありません。</h2>
     <div class="ftrbtn">
         <div id="ftrico">
             <a href="index.html"><svg xmlns="http://www.w3.org/2000/svg"
