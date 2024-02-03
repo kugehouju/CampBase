@@ -1,8 +1,10 @@
 .userIcon {
     width: 140px;
-    border-radius: 100px;
-    display: flex;
-    margin: 30px auto;
+    height: 140px;
+    object-fit: cover;
+    border-radius: 50%;
+    display: block;
+    margin: 50px auto;
 }
 
 .userName {
@@ -91,8 +93,10 @@
 
 #editContent img {
     width: 140px;
-    border-radius: 80px;
-    display: flex;
+    height: 140px;
+        object-fit: cover;
+    border-radius: 50%;
+    display: block;
     margin: 20px auto;
 }
 
@@ -116,10 +120,6 @@
     margin-bottom: 30px;
 }
 
-svg {
-    width: 25px;
-}
-
 #solid {
     border: .5px #d0d0d0 solid;
     margin-top: 30px;
@@ -127,6 +127,7 @@ svg {
 
 h2 {
     font-size: 20px;
-    margin-top: 30px;
+    margin-top: 60px;
     text-align: center;
 }
+

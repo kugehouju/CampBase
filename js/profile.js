@@ -63,3 +63,50 @@ document.addEventListener('DOMContentLoaded', function() {
         storageBtn.style.color = isAnyInputFilled ? '#333' : '#818080';
     }));
 });
+
+let uploadedImage = ''; // アップロードされた画像のデータURLを一時保存する変数
+let originalImage = ''; // 元の画像のURLを保存する変数
+
+document.querySelector('.setting').addEventListener('click', function() {
+    // 編集モーダルを開くたびに元の画像URLを保存
+    originalImage = document.querySelector('.userIcon').src;
+});
+
+document.querySelector('#imgUp').addEventListener('click', function() {
+    // input[type='file'] を動的に作成
+    let fileInput = document.createElement('input');
+    fileInput.type = 'file';
+    fileInput.accept = 'image/*'; // 画像ファイルのみ選択可能に
+    fileInput.style.display = 'none'; // ユーザーには見えないように隠す
+
+    // ファイルが選択されたら
+    fileInput.addEventListener('change', function(e) {
+        const file = e.target.files[0]; // 選択されたファイル
+        if (file) {
+            const reader = new FileReader(); // FileReaderのインスタンスを作成
+            reader.onload = function(e) {
+                uploadedImage = e.target.result; // 読み込んだファイルの内容を一時保存
+                document.querySelector('.editImg').src = uploadedImage; // .editImgに一時的に表示
+                // 画像がアップロードされたら .storageBtn を有効化
+                document.querySelector('.storageBtn').disabled = false;
+                document.querySelector('.storageBtn').style.color = '#333';
+            };
+            reader.readAsDataURL(file); // ファイルの内容をData URLとして読み込む
+        }
+    });
+
+    fileInput.click(); // ファイル選択ダイアログを表示
+});
+
+document.querySelector('.storageBtn').addEventListener('click', function() {
+    if (uploadedImage) {
+        document.querySelector('.userIcon').src = uploadedImage; // 保存ボタンが押されたら画像を反映
+    }
+    // 以下、他の保存処理...
+});
+
+document.querySelector('.cancelBtn').addEventListener('click', function() {
+    // キャンセルボタンが押されたら、編集前の画像に戻す
+    document.querySelector('.editImg').src = originalImage;
+    // 以下、他のキャンセル処理...
+});
