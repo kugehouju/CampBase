@@ -34,11 +34,5 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     nextBtn.addEventListener('click', function() {
-        const imgElement = document.querySelector('#postImg img');
-        if (imgElement) {
-            const imgSrc = imgElement.src;
-            localStorage.setItem('uploadedImage', imgSrc); // 画像のデータURLをlocalStorageに保存
-            window.location.href = 'profile.html'; // profile.htmlに遷移
-        }
-    });
-});
+        window.location.href = 'profile.html'; // profile.htmlに遷移
+})})
