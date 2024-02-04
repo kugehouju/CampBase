@@ -1,7 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // 最初は.nextBtnを無効にする
     const nextBtn = document.querySelector('.nextBtn');
-    nextBtn.disabled = true;
+    nextBtn.disabled = true; // 初期状態で無効
 
     document.getElementById('postImgBox').addEventListener('click', function() {
         let fileInput = document.createElement('input');
@@ -12,28 +11,34 @@ document.addEventListener('DOMContentLoaded', function() {
         fileInput.addEventListener('change', function(e) {
             const file = e.target.files[0];
             if (file) {
-                // 既存のコンテンツ（SVGと<p>タグ）を消去
                 const postImgDiv = document.getElementById('postImg');
-                postImgDiv.innerHTML = ''; // postImgDivの中身を空にする
+                postImgDiv.innerHTML = ''; // 既存の内容をクリア
 
-                // 選択した画像のプレビュー表示
                 const reader = new FileReader();
                 reader.onload = function(e) {
                     const img = document.createElement('img');
                     img.src = e.target.result;
-                    img.style.width = '100%'; // postImgBoxに合わせてサイズ調整
-                    img.style.height = 'auto'; // アスペクト比を保持
-                    img.style.objectFit = 'cover'; // 画像がboxにぴったり収まるように
-                    postImgDiv.appendChild(img); // 画像をpostImgDivに追加
+                    img.style.width = '100%';
+                    img.style.height = 'auto';
+                    img.style.objectFit = 'cover';
+                    postImgDiv.appendChild(img);
+
+                    nextBtn.disabled = false; // 画像アップロード後にボタンを有効化
+                    nextBtn.style.color = '#333'; // ボタンの色を変更
                 };
                 reader.readAsDataURL(file);
-
-                // 画像がアップロードされたら.nextBtnを有効にする
-                nextBtn.disabled = false;
-                nextBtn.style.color = '#333;'
             }
         });
 
         fileInput.click();
+    });
+
+    nextBtn.addEventListener('click', function() {
+        const imgElement = document.querySelector('#postImg img');
+        if (imgElement) {
+            const imgSrc = imgElement.src;
+            localStorage.setItem('uploadedImage', imgSrc); // 画像のデータURLをlocalStorageに保存
+            window.location.href = 'profile.html'; // profile.htmlに遷移
+        }
     });
 });
