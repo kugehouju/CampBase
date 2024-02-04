@@ -105,6 +105,26 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 document.addEventListener('DOMContentLoaded', function() {
+    // ランダムな場所を生成する関数
+    function generateRandomPlace() {
+        const places = ["ぽんぽこキャンプ場", "さくらキャンプ村", "やまびこキャンプ場", "ひだまりキャンプリゾート", "みずうみ畔キャンプガーデン", "ひらたにキャンプエリア", "そよかぜ草原キャンプリトリート", "ゆらぎ河岸キャンプランド", "朝日の丘キャンプエリア", "紅葉キャンププレイス"];
+        const randomIndex = Math.floor(Math.random() * places.length);
+        return places[randomIndex];
+    }
+
+    // 画像がクリックされたときにランダムな場所を表示するイベントリスナーを追加
+    document.querySelectorAll('img').forEach(function(img) {
+        img.addEventListener('click', function() {
+            const randomPlace = generateRandomPlace();
+            const placeElement = document.querySelector('.place');
+            if (placeElement) {
+                placeElement.textContent = randomPlace;
+            }
+        });
+    });
+});
+
+document.addEventListener('DOMContentLoaded', function() {
     document.body.addEventListener('click', function(event) {
         const button = event.target.closest('button');
         if (!button) return;

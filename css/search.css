@@ -1,16 +1,28 @@
+#searchBack {
+  width: 100%;
+  padding: 1px;
+  height: 210px;
+  object-fit: cover;
+  background-image: url("https://source.unsplash.com/random/?Camp&");
+  /* filter: brightness(50%); */
+  z-index: 1;
+}
+
 .search-container {
     width: 80%;
     margin: 0 auto;
-    margin-top: 30px;
+    margin-top: 80px;
+    z-index: 2;
   }
   
   #search-input {
     width: 100%;
     height: 40px;
-    border: 1px solid #d0d0d0;
     border-radius: 25px;
     padding: 10px;
     font-size: 16px;
+    opacity: 70%;
+    background-color: #fefefe;
   }
   
   #search-input:focus {
@@ -22,6 +34,170 @@
     color: #999;
   }
 
+h1 {
+  text-align: center;
+  font-size: 16px;
+  margin: 35px 0;
+}
+
+#searchBox {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  width: fit-content;
+}
+
+#searchBox button{
+  border-radius: 20px;
+  width: 180px;
+  height: 90px;
+  color: #fefefe;
+}
+
+span {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+}
+
+.glamping {
+  position: relative;
+  overflow: hidden;
+  color: #fefefe;
+}
+
+.glamping .background-image {
+  background-image: url('../img/glamping_bk.jpg');
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  filter: brightness(60%);
+  z-index: 1;
+}
+
+.tent {
+  position: relative;
+  overflow: hidden;
+  color: #fefefe;
+}
+
+.tent .background-image {
+  background-image: url(../img/tent_bk.jpg);
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  filter: brightness(60%);
+  z-index: 1;
+}
+
+.outdoor {
+  position: relative;  overflow: hidden;
+  color: #fefefe;
+}
+
+.outdoor .background-image {
+  background-image: url(../img/outdoor_bk.jpg);
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  filter: brightness(60%);
+  z-index: 1;
+}
+
+.hiking {
+  position: relative;
+  overflow: hidden;
+  color: #fefefe;
+}
+
+.hiking .background-image {
+  background-image: url(../img/tent_bk.jpg);
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  filter: brightness(60%);
+  z-index: 1;
+}
+
+.bbq {
+  position: relative;
+  overflow: hidden;
+  color: #fefefe;
+}
+
+.bbq .background-image {
+  background-image: url(../img/bbq_bk.jpg);
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  filter: brightness(60%);
+  z-index: 1;
+}
+
+.campfire {
+  position: relative;
+  overflow: hidden;
+  color: #fefefe;
+}
+
+.campfire .background-image {
+  background-image: url(../img/campfire_bk.jpg);
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  filter: brightness(60%);
+  z-index: 1;
+}
+
+.campgear {
+  position: relative;
+  overflow: hidden;
+  color: #fefefe;
+}
+
+.campgear .background-image {
+  background-image: url(../img/campgear_bk.jpg);
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  filter: brightness(60%);
+  z-index: 1;
+}
+
+.hammock {
+  position: relative;
+  overflow: hidden;
+  color: #fefefe;
+}
+
+.hammock .background-image {
+  background-image: url(../img/hammock_bk.jpg);
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  filter: brightness(60%);
+  z-index: 1;
+}
+
 #searchWindow {
     position: fixed;
     left: 0;
@@ -30,8 +206,9 @@
     height: 100%;
     background-color: #fefefe;
     transition: transform 0.3s ease-in-out;
-    transform: translateX(0%);
+    transform: translateX(00%);
     pointer-events: auto;
+    z-index: 100;
 }
 
 .MdlTop {
