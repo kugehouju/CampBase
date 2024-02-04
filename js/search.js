@@ -1,84 +1,72 @@
-var searchInput = document.getElementById("search-input");
+document.addEventListener('DOMContentLoaded', function() {
+    const searchInput = document.getElementById('search-input');
+    const searchButtons = document.querySelectorAll('#searchBox button');
+    const searchWindow = document.getElementById('searchWindow');
+    const leftArrow = document.getElementById('leftarrow');
 
-searchInput.addEventListener("keypress", function (event) {
-  if (event.keyCode === 13) {
-var searchText = searchInput.value;
+    function addRandomImages(query = '') {
+        // 既存の画像コンテナをクリア
+        const existingImagesContainer = document.getElementById('images-container');
+        if (existingImagesContainer) {
+            searchWindow.removeChild(existingImagesContainer);
+        }
 
-if(searchText.trim().length === 0) {
-    return;
-}
+        const imagesContainer = document.createElement('div');
+        imagesContainer.className = 'images-container';
+        imagesContainer.id = 'images-container';
 
-// 新規画面を表示する処理を実行
-    var searchWindow = document.getElementById('searchWindow');
-    searchWindow.style.transform = 'translateX(0%)';
-        searchInput.value = '';
-        console.log(searchText)
-  }
+        for (let i = 0; i < 20; i++) {
+            const imageContainer = document.createElement('div');
+            imageContainer.className = 'image-container';
+            const img = document.createElement('img');
+            img.className = 'random-image';
+            img.src = `https://source.unsplash.com/random/1000x1000?${query}&sig=${Math.random()}`;
+            imageContainer.appendChild(img);
+            imagesContainer.appendChild(imageContainer);
+        }
+
+        // #leftarrowの下にimagesContainerを挿入
+        leftArrow.after(imagesContainer);
+
+        // スクロールイベントリスナーを追加
+        imagesContainer.addEventListener('scroll', function() {
+            if (imagesContainer.scrollTop + imagesContainer.clientHeight >= imagesContainer.scrollHeight) {
+                addMoreRandomImages(query); // 最下部に達したら更に画像を追加
+            }
+        });
+    }
+
+    function addMoreRandomImages(query = '') {
+        const imagesContainer = document.getElementById('images-container');
+        for (let i = 0; i < 10; i++) {
+            const imageContainer = document.createElement('div');
+            imageContainer.className = 'image-container';
+            const img = document.createElement('img');
+            img.className = 'random-image';
+            img.src = `https://source.unsplash.com/random/1000x1000?${query}&sig=${Math.random()}`;
+            imageContainer.appendChild(img);
+            imagesContainer.appendChild(imageContainer);
+        }
+    }
+
+    searchInput.addEventListener('keypress', function(e) {
+        if (e.key === 'Enter' && searchInput.value.trim() !== '') {
+            e.preventDefault();
+            searchWindow.style.transform = 'translateX(0)';
+            addRandomImages(searchInput.value.trim());
+            searchInput.value = ''
+        }
+    });
+
+    searchButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            searchWindow.style.transform = 'translateX(0)';
+            const buttonClass = this.getAttribute('class').split(' ')[0];
+            addRandomImages(buttonClass);
+        });
+    });
+
+    leftArrow.addEventListener('click', function() {
+        searchWindow.style.transform = 'translateX(100%)';
+    });
 });
-
-// 画像表示エリアを非表示にするためのクリックイベントを追加
-var arrowButton = document.getElementById('arrow-button');
-arrowButton.onclick = function() {
-    var searchWindow = document.getElementById('searchWindow');
-    searchWindow.style.transform = 'translateX(100%)'; // 画像表示エリアを非表示にする
-}
-
-
-
-// 画像の読み込みエラーの処理を追加
-function addErrorHandling(img) {
-    img.onerror = function() {
-        this.src = 'fallback_image_url'; // 代替画像のURL
-    };
-}
-
-// 画像をクリックしたときのイベントリスナーを関数にまとめる
-function addClickListener(img) {
-    img.onclick = function() {
-        var displayedImg = document.getElementById('displayedImage');
-        displayedImg.src = this.src;
-        var imageDisplayDiv = document.getElementById('imageDisplay');
-        imageDisplayDiv.style.transform = 'translateX(0)'; // 画像表示エリアを表示
-    }
-}
-
-// 画像の生成と追加の処理を関数化
-function createAndAppendImages(container, numImages) {
-    for (var i = 0; i < numImages; i++) {
-        var img = new Image();
-        img.src = "https://source.unsplash.com/random/?" + keywords + "&" + (images.length + i);
-        img.loading = 'lazy';
-        var div = document.createElement('div');
-        div.className = 'grid-item';
-        div.appendChild(img);
-        images.push(div);
-        addClickListener(img);
-        addErrorHandling(img);
-        container.appendChild(div);
-    }
-}
-
-// 画像を格納する配列
-var images = [];
-
-// 画像の数を指定
-var numImages = 10;
-
-// 検索キーワードを格納する配列
-var keywords = searchText;
-
-// Unsplashからランダムな画像を取得し、ページに追加
-var container = document.createElement('div');
-container.className = 'grid-container';
-createAndAppendImages(container, numImages);
-document.body.appendChild(container);
-
-// スクロールがページの一番下まで到達したときに新しい画像を生成
-window.onscroll = function() {
-    if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
-        var newContainer = document.createElement('div');
-        newContainer.className = 'grid-container';
-        createAndAppendImages(newContainer, numImages);
-        document.body.appendChild(newContainer);
-    }
-};
