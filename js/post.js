@@ -34,5 +34,9 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     nextBtn.addEventListener('click', function() {
-        window.location.href = 'profile.html'; // profile.htmlに遷移
-})})
+        // ローカルストレージにフラグを設定
+        localStorage.setItem('displayPostImage', 'true');
+        // profile.htmlに遷移
+        window.location.href = 'profile.html';
+    });
+});

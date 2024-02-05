@@ -2,7 +2,12 @@ document.addEventListener('DOMContentLoaded', function() {
     const searchInput = document.getElementById('search-input');
     const searchButtons = document.querySelectorAll('#searchBox button');
     const searchWindow = document.getElementById('searchWindow');
+    const searchBack = document.getElementById('searchBack'); // searchBack要素を取得
     const leftArrow = document.getElementById('leftarrow');
+
+    // searchBackの背景画像を更新
+    const newImageUrl = 'https://source.unsplash.com/random/?camp&';
+    searchBack.style.backgroundImage = 'url("' + newImageUrl + '")';
 
     function addRandomImages(query = '') {
         // 既存の画像コンテナをクリア
@@ -27,13 +32,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // #leftarrowの下にimagesContainerを挿入
         leftArrow.after(imagesContainer);
-
-        // スクロールイベントリスナーを追加
-        imagesContainer.addEventListener('scroll', function() {
-            if (imagesContainer.scrollTop + imagesContainer.clientHeight >= imagesContainer.scrollHeight) {
-                addMoreRandomImages(query); // 最下部に達したら更に画像を追加
-            }
-        });
     }
 
     function addMoreRandomImages(query = '') {
@@ -54,7 +52,7 @@ document.addEventListener('DOMContentLoaded', function() {
             e.preventDefault();
             searchWindow.style.transform = 'translateX(0)';
             addRandomImages(searchInput.value.trim());
-            searchInput.value = ''
+            searchInput.value = '';
         }
     });
 
