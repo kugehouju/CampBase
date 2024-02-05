@@ -10,6 +10,9 @@
     width: 80%;
     margin: 0 auto;
     margin-top: 80px;
+    border: solid .5px #fefefe;
+    border-radius: 50px;
+    box-shadow: .5px .5px 10px #fefefe;
   }
   
   #search-input {
@@ -20,8 +23,6 @@
     font-size: 16px;
     opacity: 65%;
     background-color: #fefefe;
-    filter: blur(0);
-
   }
   
   #search-input:focus {

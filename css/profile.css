@@ -94,7 +94,7 @@
 #editContent img {
     width: 140px;
     height: 140px;
-        object-fit: cover;
+    object-fit: cover;
     border-radius: 50%;
     display: block;
     margin: 20px auto;

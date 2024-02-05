@@ -34,8 +34,9 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     nextBtn.addEventListener('click', function() {
-        // ローカルストレージにフラグを設定
-        localStorage.setItem('displayPostImage', 'true');
+        // セッションストレージにフラグを設定
+        sessionStorage.setItem('nextBtnClicked', 'true');
+    
         // profile.htmlに遷移
         window.location.href = 'profile.html';
     });

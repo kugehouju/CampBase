@@ -107,7 +107,7 @@ document.addEventListener('DOMContentLoaded', function() {
 document.addEventListener('DOMContentLoaded', function() {
     // ランダムな場所を生成する関数
     function generateRandomPlace() {
-        const places = ["ぽんぽこキャンプ場", "さくらキャンプ村", "やまびこキャンプ場", "ひだまりキャンプリゾート", "みずうみ畔キャンプガーデン", "ひらたにキャンプエリア", "そよかぜ草原キャンプリトリート", "ゆらぎ河岸キャンプランド", "朝日の丘キャンプエリア", "紅葉キャンププレイス"];
+        const places = ["ぽんぽこキャンプ場", "さくらキャンプ村", "やまびこキャンプ場", "ひだまりキャンプ場", "みずうみ畔キャンプガーデン", "ひらたにキャンプエリア", "そよかぜ草原キャンプ場", "ゆらぎ河岸キャンプランド", "朝日の丘キャンプエリア", "紅葉キャンププレイス"];
         const randomIndex = Math.floor(Math.random() * places.length);
         return places[randomIndex];
     }
